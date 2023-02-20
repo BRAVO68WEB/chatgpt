@@ -35,7 +35,7 @@ func (NullWriter) Write([]byte) (int, error) { return 0, nil }
 
 func main() {
 	log.SetOutput(new(NullWriter))
-	apiKey := os.Getenv("API_KEY")
+	apiKey := os.Getenv("OPENAI_API_KEY")
 	if apiKey == "" {
 		panic("Missing API KEY")
 	}
@@ -50,7 +50,7 @@ func main() {
 			quit := false
 
 			for !quit {
-				fmt.Print("輸入你的問題(quit 離開): ")
+				fmt.Print("Enter your question (quit): ")
 
 				if !scanner.Scan() {
 					break
